@@ -22,6 +22,21 @@ class Receipt():
                 new = Item(it.get("name"), it.get("quantity"), it.get("price"), self._store)
                 self._items.append(new)
                 # print(new)
+    def setID(self):
+        self._id = 1
+
+
+
+    def viewReceipt(self):
+        string = ""
+        string += ("ID: %s\n" %self._id)
+        string += ("Store: %s \n" %self._store)
+        string += ("Date: %s\n" %self._date)
+        string += ("Category: %s\n" %self._category)
+        for i in self._items:
+            string += ("Name: " + str(i._name) + "," + " Quantity: " + str(i._quantity) + "," + " Price: " + str(i._price))
+        return string
+
 
 
 # r = Receipt()

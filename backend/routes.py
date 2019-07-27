@@ -5,3 +5,11 @@ from receipt import Receipt
 from system import System
 from user import User
 from item import Item
+
+@app.route('/', methods=["GET", "POST"])
+def home():
+    return render_template('home.html')
+
+@app.route('/receipt', methods=["GET", "POST"])
+def save():
+    
