@@ -1,0 +1,32 @@
+{
+    "store": "Chemist Warehouse",
+    "date": "Feb 12 2018",
+    "category": "Pharmacuticals",
+    "items": [
+        {
+            "name": "Pills",
+            "quantity": 5,
+            "price": 123 
+        },
+        {
+            "name": "Molly",
+            "quantity": 2,
+            "price": 12 
+        },
+        {
+            "name": "Nangs",
+            "quantity": 1,
+            "price": 7.89
+        },
+        {
+            "name": "Weed",
+            "quantity": 12,
+            "price": 99999 
+        },
+        {
+            "name": "Coke",
+            "quantity": 1,
+            "price": 1000000000000 
+        }
+    ]
+}

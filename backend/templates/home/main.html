@@ -1,0 +1,120 @@
+{% extends "layouts/layout.html" %}
+{% block content %}
+<style>
+      h1 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+      }
+      h2 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: normal;
+        font-size:20px;
+      }
+      .capitalize { text-transform: capitalize; }
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navbar a:hover {
+        background: #f1f1f1;
+        color: black;
+      }
+
+      .navbar a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      .tab {position:absolute;left:40px; }
+
+</style>
+<div style = "position: relative; width: 375px; height: 225px; left:0px; top: -40px;background-color: #25AC72;border-radius: 31px;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <span class="tab"><h1 class="capitalize">Receipts</h1>
+        <h2>All in one place</h2></span>
+</div>
+
+<!-- List part -->
+<div style = "position: relative;">
+<table align = "center">
+    <tr>
+        <div class="select_container">
+            <div class="select">
+            <select>
+                <option value="hi">Hi</option>
+            <div class = "dropdownmenu">
+            {% for i in categories%}
+            <form method="POST">
+                <option value={{ i }} type="submit" name={{i}}>{{ i }}</option>
+            </form>
+            {% endfor %}
+            </div>
+            </select>
+            </div>
+        </div>
+    </tr>
+</table>
+</div>
+
+<div style = "position: relative;">
+    {% if company|length >= 1 %}
+        <!-- Do the icon stuff -->
+        <!-- <div style = "position: relative;">
+            <span class="tab"><h2 style = "color: #25AC72;"> Businesses </h2></span>
+        </div>
+        <br>
+        <br> -->
+        <table align = "center">
+            {% for i in company %}
+                <tr>
+                    {% for row_item in range(3) %}
+                    <form method="POST">
+                         <td> <img src="{{i}}.png" width = 98px, height = 126px value={{ i }} type="submit" name={{i}}> </td>
+                    </form>
+                    {% set i = company[loop.index] %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+        </table>
+    {% else %}
+        <h2> Nothing added </h2>
+    {% endif %}
+</div>
+
+<div style = "position: relative;">
+    <span class="tab"><h2 style = "color: #25AC72;"> Businesses </h2></span>
+</div>
+<div style = "position: relative;">
+    <br>
+    <br>
+    <table align = "center">
+        <tr>
+            {% for row_item in range(3) %}
+            <td><img src="../../static/img/woolies.png" width = 98px, height = 126px></td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
