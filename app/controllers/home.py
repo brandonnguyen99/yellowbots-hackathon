@@ -13,6 +13,7 @@ def error():
 
 @blueprint.route('/company_receipt/<company>')
 def company_receipt(company):
+    
     return render_template('home/company_receipt.html', company = company);
 
 @blueprint.route('/add_receipt')
