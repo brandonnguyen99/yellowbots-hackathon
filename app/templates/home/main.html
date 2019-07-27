@@ -62,9 +62,11 @@
 			<div class="select">
 			<select>
 				<option value="hi">Hi</option>
+			<div class = "dropdownmenu">
 			{% for i in categories%}
 				<option value={{ i }}>{{ i }}</option>
 			{% endfor %}
+			</div>
 			</select>
 			</div>
 		</div>
@@ -75,15 +77,19 @@
 <div style = "position: relative;">
 	{% if company|length >= 1 %}
 		<!-- Do the icon stuff -->
-		<!-- <h1 style = "color: #25AC72"> Businesses </h1> -->
+		<!-- <div style = "position: relative;">
+			<span class="tab"><h2 style = "color: #25AC72;"> Businesses </h2></span>
+		</div>
+		<br>
+		<br> -->
 		<table align = "center">
 			{% for i in company %}
-				{% for row_item in range(3) %}
 				<tr>
-					<td> <img src="{{i}}.jpg" alt="{{i}}" style="width:100%"> </td>
+					{% for row_item in range(3) %}
+					<td> <img src="{{i}}.png" width = 98px, height = 126px> </td>
 					{% set i = company[loop.index] %}
+					{% endfor %}
 				</tr>
-				{% endfor %}
 			{% endfor %}
 
 		</table>
@@ -93,12 +99,16 @@
 </div>
 
 <div style = "position: relative;">
-	<h1 style = "color: #25AC72"> Businesses </h1>
+	<span class="tab"><h2 style = "color: #25AC72;"> Businesses </h2></span>
+</div>
+<div style = "position: relative;">
+	<br>
+	<br>
 	<table align = "center">
 		<tr>
-			<td><img src="../../static/img/thegradshop.png"></td>
-			<td><img src="../../static/img/thegradshop.png"></td>
-			<td><img src="../../static/img/thegradshop.png"></td>
+			{% for row_item in range(3) %}
+			<td><img src="../../static/img/woolies.png" width = 98px, height = 126px></td>
+			{% endfor %}
 		</tr>
 	</table>
 </div>

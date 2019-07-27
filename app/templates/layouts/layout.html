@@ -18,24 +18,78 @@
           outline: 0; 
           background: #25AC72; 
           background-image: none; 
- /*         width: 275px; 
-          height: 48px; */
+          width: 150px; 
+          height: 48px; 
           color: white; 
           cursor: pointer;  
           border-radius:100px; 
+          text-align: center;
+          padding-left: 15%;
       }
 
       .select { 
           margin-top: -50px;
           position: relative; 
           display: inline-block; 
-/*          width: 15em; 
-          height: 2em; */
           line-height: 3; 
           overflow: hidden; 
           border-radius: .25em; 
-          padding: 30px 100px;     
+          padding: 30px 100px;   
       }
+
+      option {
+        font-size: 10px;
+        width: 150px; 
+        height: 48px; 
+      }
+
+      .dropdownmenu{
+        width: 150px; 
+        height: 48px; 
+        position:absolute;
+        min-width: 50px;
+        display:none;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .dropdownmenu a {
+        padding: 12px 16px;
+      }
+
+      table {
+        font-family: 'Open Sans', sans-serif;
+        border-collapse: collapse;
+        border: none;
+        border-spacing:0 50px;
+        width: 90%;
+      }
+
+      .gfg{ 
+        border-collapse:separate; 
+        border-spacing:0 15px; 
+      } 
+
+      td {
+        text-align: center;
+        padding: 8px;
+        border: none;
+      }
+
+      th {
+        text-align: center;
+        padding: 8px;
+        border: none;
+        color: #25AC72;
+        font-weight: normal;
+      }
+
+      tr:not(:first-child){
+        background-color: #E8FFF4;
+        box-shadow: 0px 0px 15px #9BC4B0;
+        border-radius: 17px;
+      }
+
       h1 {
         font-family: 'Open Sans', sans-serif;
         color: white;
