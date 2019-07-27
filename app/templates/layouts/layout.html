@@ -4,12 +4,24 @@
     <meta charset="utf-8">
     <title>PaperCut!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
     <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     
     <style>
+      h1 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+      }
+      h2 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: normal;
+        font-size:20px;
+      }
+      .capitalize { text-transform: capitalize; }
       .navbar {
         overflow: hidden;
         background-color: #333;
@@ -37,7 +49,9 @@
         background-color: #4CAF50;
         color: white;
       }
-</style>
+
+      .tab {position:absolute;left:40px; }
+  </style>
   </head>
   <body>
 
