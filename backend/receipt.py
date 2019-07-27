@@ -24,6 +24,11 @@ class Receipt():
                 # print(new)
     def setID(self):
         self._id = 1
+    def calculateTotal(self):
+        total = 0
+        for i in self._items:
+            total += i._price
+        return total
 
 
 
@@ -37,7 +42,9 @@ class Receipt():
             string += ("Name: " + str(i._name) + "," + " Quantity: " + str(i._quantity) + "," + " Price: " + str(i._price))
         return string
 
-
+    @property
+    def category(self):
+        return self._category
 
 # r = Receipt()
 # r.createReceipt('sample2.json')
