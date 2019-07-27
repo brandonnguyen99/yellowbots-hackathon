@@ -1,7 +1,8 @@
 from receipt import Receipt
 
-class User()
-    def __init__(self, id, password):
+class User():
+    def __init__(self, id):
+        # password
         self._id = id
         self._receipts = []
 
@@ -17,7 +18,7 @@ class User()
     def num_receipts(self):
         return len(self._receipts)
 
-    @receipts.setter
+    # @receipts.setter
     def addReceipt(self, newReceipt):
         self._receipts.append(newReceipt)
 
@@ -26,10 +27,9 @@ class User()
         for receipt in self._receipts:
             if (receipt.category == category):
                 category_receipts.append(receipt)
-        
+
         return category_receipts
 
 
     def __str__(self):
         return "id: {}, Receipts: {}".format(self._id, self._receipts)
-

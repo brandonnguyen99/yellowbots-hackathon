@@ -5,10 +5,9 @@ import json
 class Receipt():
     def __init__(self):
         self._items = []
-        self._name = ""
         self._date = datetime
         self._category = ""
-        self._id = ""
+        self._id = "" # receipt id ?? do we want this to correspond to user id?
         self._store = ""
 
     def createReceipt(self, file):
