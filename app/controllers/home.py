@@ -11,10 +11,10 @@ def index():
 def error():
     return render_template('404.html')
 
-@blueprint.route('/company_receipt/<company>')
-def company_receipt(company):
+@blueprint.route('/company_receipt/<company>/<length>/<date>/<cost>/<id>')
+def company_receipt(company, length, date, cost, id):
     
-    return render_template('home/company_receipt.html', company = company);
+    return render_template('home/company_receipt.html', company = company, length = length, date = date, cost = cost, id = id);
 
 @blueprint.route('/add_receipt')
 def add_receipt():
