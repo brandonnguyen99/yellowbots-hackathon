@@ -63,8 +63,10 @@
 			<select>
 				<option value="hi">Hi</option>
 			<div class = "dropdownmenu">
-			{% for i in categories%}
-				<option value={{ i }}>{{ i }}</option>
+      {% for i in categories%}
+      <form method="POST">
+        <option value={{ i }} type = "submit" name = {{i}} >{{ i }}</option>
+      </form>
 			{% endfor %}
 			</div>
 			</select>
@@ -85,8 +87,10 @@
 		<table align = "center">
 			{% for i in company %}
 				<tr>
-					{% for row_item in range(3) %}
-					<td> <img src="{{i}}.png" width = 98px, height = 126px> </td>
+          {% for row_item in range(3) %}
+          <form method="POST">
+            <td> <img src="{{i}}.png" width = 98px, height = 126px value={{i}} type = "submit" name = {{i}}> </td>
+          </form>
 					{% set i = company[loop.index] %}
 					{% endfor %}
 				</tr>

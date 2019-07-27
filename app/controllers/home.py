@@ -7,10 +7,6 @@ blueprint = Blueprint('home', __name__)
 def index():
     return render_template('home/index.html')
 
-@blueprint.route('/404')
-def error():
-    return render_template('404.html')
-
 @blueprint.route('/company_receipt/<company>/<length>/<date>/<cost>/<id>')
 def company_receipt(company, length, date, cost, id):
     
