@@ -16,9 +16,9 @@ def company_receipt(company, length, date, cost, id):
     
     return render_template('home/company_receipt.html', company = company, length = length, date = date, cost = cost, id = id);
 
-@blueprint.route('/add_receipt')
-def add_receipt():
-    return render_template('home/add_receipt.html');
+@blueprint.route('/receipt')
+def receipt():
+    return render_template('home/receipt.html');
 
 @blueprint.route('/main')
 def main():
