@@ -1,6 +1,50 @@
 {% extends "layouts/layout.html" %}
 
 {% block content %}
+    <style>
+      h1 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+      }
+      h2 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: normal;
+        font-size:20px;
+      }
+      .capitalize { text-transform: capitalize; }
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navbar a:hover {
+        background: #f1f1f1;
+        color: black;
+      }
+
+      .navbar a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      .tab {position:absolute;left:40px; }
+  </style>
 
 <div style = "position: absolute; width: 375px; height: 225px; left:0px; top: -40px;background-color: #25AC72;border-radius: 31px;">
         <br>

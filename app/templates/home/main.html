@@ -1,76 +1,106 @@
-{% block body %}
+{% extends "layouts/layout.html" %}
+{% block content %}
 <style>
-body {
-  background-color: #E8FFF4;
-}
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
+      h1 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+      }
+      h2 {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-weight: normal;
+        font-size:20px;
+      }
+      .capitalize { text-transform: capitalize; }
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
 
-.select_container {
-	text-align: center;
-}
+      .navbar a:hover {
+        background: #f1f1f1;
+        color: black;
+      }
 
-select { 
-    appearance: none; 
-    outline: 0; 
-    background: #25AC72; 
-    background-image: none; 
-    width: 275px; 
-    height: 48px; 
-    color: white; 
-    cursor: pointer;  
-    border-radius:100px; 
-}
+      .navbar a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
 
-.select { 
-	margin-top: 100px;
-    position: relative; 
-    display: inline-block; 
-    width: 15em; 
-    height: 2em; 
-    line-height: 3; 
-    overflow: hidden; 
-    border-radius: .25em; 
-    padding: 30px 100px;     
-}
+      .tab {position:absolute;left:40px; }
 
 </style>
+<div style = "position: relative; width: 375px; height: 225px; left:0px; top: -40px;background-color: #25AC72;border-radius: 31px;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <span class="tab"><h1 class="capitalize">Receipts</h1>
+        <h2>All in one place</h2></span>
+</div>
 
 <!-- List part -->
-<div class="select_container">
-	<div class="select">
-	<select>
-		<option value="hi">Hi</option>
-	{% for i in categories%}
-		<option value={{ i }}>{{ i }}</option>
-	{% endfor %}
-	</select>
-
-	</div>
+<div style = "position: relative;">
+<table align = "center">
+	<tr>
+		<div class="select_container">
+			<div class="select">
+			<select>
+				<option value="hi">Hi</option>
+			{% for i in categories%}
+				<option value={{ i }}>{{ i }}</option>
+			{% endfor %}
+			</select>
+			</div>
+		</div>
+	</tr>
+</table>
 </div>
 
-{% if company|length >= 1 %}
-	<!-- Do the icon stuff -->
-<div class="row">
-	{% for i in company %}
-	  <div class="column">
-	    <img src="{{i}}.jpg" alt="{{i}}" style="width:100%">
-	  </div>
-	{% endfor %}
+<div style = "position: relative;">
+	{% if company|length >= 1 %}
+		<!-- Do the icon stuff -->
+		<!-- <h1 style = "color: #25AC72"> Businesses </h1> -->
+		<table align = "center">
+			{% for i in company %}
+				{% for row_item in range(3) %}
+				<tr>
+					<td> <img src="{{i}}.jpg" alt="{{i}}" style="width:100%"> </td>
+					{% set i = company[loop.index] %}
+				</tr>
+				{% endfor %}
+			{% endfor %}
+
+		</table>
+	{% else %}
+		<h2> Nothing added </h2>
+	{% endif %}
 </div>
 
-{% else %}
-	<h2> Nothing added </h2>
-{% endif %}
+<div style = "position: relative;">
+	<h1 style = "color: #25AC72"> Businesses </h1>
+	<table align = "center">
+		<tr>
+			<td><img src="../../static/img/thegradshop.png"></td>
+			<td><img src="../../static/img/thegradshop.png"></td>
+			<td><img src="../../static/img/thegradshop.png"></td>
+		</tr>
+	</table>
+</div>
 
 {% endblock %}
