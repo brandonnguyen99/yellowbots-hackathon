@@ -8,11 +8,49 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
     <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    
+    <style>
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navbar a:hover {
+        background: #f1f1f1;
+        color: black;
+      }
+
+      .navbar a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+</style>
   </head>
   <body>
 
+    <!-- header about titles, subtitles and profile picture-->
+    <!-- should it be included in each webpage instead?-->
+
     {% block content %}{% endblock %}
-    {% block body %}{% endblock %}
+
+    <!-- footer about selection of receipt/add receipts-->
+    <div class="navbar">
+        <a href="../main">Receipt</a>
+        <a href="../add_receipt">Add Receipts</a>
+    </div>
 
     <!-- Scripts for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
