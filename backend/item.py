@@ -20,4 +20,7 @@ class Item():
 
     @property
     def store(self):
-        return self._store    
+        return self._store  
+
+    def __str__(self):
+        return f'{self.name} [{self.quantity}] ${self.price}/item'  
