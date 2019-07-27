@@ -1,5 +1,76 @@
-{% extends "layouts/layout.html" %}
+{% block body %}
+<style>
+body {
+  background-color: #E8FFF4;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
 
-{% block content %}
-<h1>Main</h1>
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.select_container {
+	text-align: center;
+}
+
+select { 
+    appearance: none; 
+    outline: 0; 
+    background: #25AC72; 
+    background-image: none; 
+    width: 275px; 
+    height: 48px; 
+    color: white; 
+    cursor: pointer;  
+    border-radius:100px; 
+}
+
+.select { 
+	margin-top: 100px;
+    position: relative; 
+    display: inline-block; 
+    width: 15em; 
+    height: 2em; 
+    line-height: 3; 
+    overflow: hidden; 
+    border-radius: .25em; 
+    padding: 30px 100px;     
+}
+
+</style>
+
+<!-- List part -->
+<div class="select_container">
+	<div class="select">
+	<select>
+		<option value="hi">Hi</option>
+	{% for i in categories%}
+		<option value={{ i }}>{{ i }}</option>
+	{% endfor %}
+	</select>
+
+	</div>
+</div>
+
+{% if company|length >= 1 %}
+	<!-- Do the icon stuff -->
+<div class="row">
+	{% for i in company %}
+	  <div class="column">
+	    <img src="{{i}}.jpg" alt="{{i}}" style="width:100%">
+	  </div>
+	{% endfor %}
+</div>
+
+{% else %}
+	<h2> Nothing added </h2>
+{% endif %}
+
 {% endblock %}

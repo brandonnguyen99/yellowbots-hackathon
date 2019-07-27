@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/6JrSQ68/Untitled-1.jpg" alt="Untitled-1" border="0" height = 285 width = 250></a>
+    <title> Gourmet Burgers</title>
+
+<style> body,html{
+    height: 100%;
+    background: beige;
+    font-family: 'Lato', sans-serif;
+}
+
+    .search_style{
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  height: auto;
+  width: 500px;
+  padding: 20px;
+}
+    .button_style{
+  width: 200px;
+}
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #e7e7e7;
+        background-color: aliceblue;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: deepskyblue;
+    }
+
+    li a.active {
+        color: white;
+        background-color: red;
+    }
+
+    h2 {
+    text-align: center;
+	color: #313131;
+    }
+
+    h1 {
+    text-align: center;
+	color: #313131;
+    }
+
+    input[type=text], select, input[type=number], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+        background-color : #d1d1d1;
+        font-size:15px;
+        color: #666666;
+    }
+
+    button {
+        width: 100%;
+        background-color: lightgrey;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #b49543;
+    }
+
+        .shop_style{
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  height: auto;
+  width: 500px;
+  padding: 20px;
+}
+                .body_style{
+  display: block;
+  position: relative;
+
+  margin: 40px auto;
+   margin-top: 0;
+  height: auto;
+  width: 900px;
+}
+                .manage_style{
+  display: block;
+  position: relative;
+
+  margin: 40px auto;
+   margin-top: 0;
+  height: auto;
+  width: 900px;
+}
+
+
+        #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+
+}
+
+#customers tr:nth-child(odd){background-color: #f2f2f2;}
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: firebrick;
+    color: white;
+}
+
+</style>
+</head>
+
+
+
+
+
+<body>
+<br>
+<ul>
+<li><a href="{{ url_for('home') }}">Home</a></li>
+<li><a href="{{ url_for('mains') }}">Main Creation</a></li>
+<li><a href="{{ url_for('sides') }}">Sides</a></li>
+<li><a href="{{ url_for('drinks') }}">Drinks</a></li>
+<li><a href="{{ url_for('current_order') }}">View Current Order</a></li>
+<li><a href="{{ url_for('checkout') }}">Checkout</a></li>
+<br>
+</ul>
+
+{% block body %}
+{% endblock %}
+
+</body>
+</html>
