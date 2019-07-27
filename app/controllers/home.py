@@ -14,6 +14,11 @@ from system import System
 from user import User
 from item import Item
 
+# @app.route('/', methods=["GET", "POST"])
+# def login():
+
+
+
 @app.route('/home', methods=["GET", "POST"])
 def home():
     # bunch of redirects here depending on what the the user chooses to see or do
@@ -44,3 +49,45 @@ def fail():
     return render_template('fail.html')
 @app.route('/view', methods=["GET", "POST"])
 def view():
+    # return stores based on category
+    if request.form == "POST":
+        if "category" in request.form:
+            categoryComp = []
+            category = request.form["category"]
+            for u in system._user:
+                if u.id == 1:
+                    categoryComp = u.retrieveCompany(category)
+            if not categoryComp:
+                # render template for empty
+                False
+            else:
+                render_template("main.html" categoryComp=categoryComp)
+    return render_template("main.html")
+
+
+@app.route('/view/store', methods=["GET","POST"])
+def store():
+    if request.form == "POST":
+        if "store" in request.form:
+            store_receipts = []
+            store = request.form["store"]
+            for u in system._user:
+                if u._id == 1:
+                    store_receipts = u.receiptStore()
+            if not store_receipts:
+                False
+                #error return render_template
+            else:
+                return render_template("receipts.html", store_receipts=store_receipts)
+        if "id" in request.form:
+            return redirect(url_for('receipt'))
+@app.route('/view/store/receipt', methods=["GET","POST"])
+def receipt():
+    if request.form == "POST":
+        for u in system.user:
+            if u.id == 1:
+                for r in u._receipts:
+                    if r._id == request.form["id"]:
+                        receipt = r
+                        return render_template("receipts_show.html", receipt=receipt)
+        return redirect(url_for('store'))

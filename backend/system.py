@@ -21,11 +21,13 @@ class System():
                 print("test")
                 found = True
         return found
-    def login(self, id, password):
-        for user in self._user:
-            if user.authenticate(id, password) == True:
-                return user
-        return False
+    def generateID(self):
+        id = 0
+        for r in self._receipts:
+            if r._id > id:
+                id = r._id
+        id = id + 1
+        return id
 
             # print error- output to front end
 # s = System()

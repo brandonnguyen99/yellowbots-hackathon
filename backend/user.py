@@ -11,7 +11,7 @@ class User():
         return self._id
 
     @property
-    def total_receipts(self):
+    def receipts(self):
         return self._receipts
 
     @property
@@ -31,17 +31,23 @@ class User():
         return category_receipts
     def retrieveCompany(self, category):
         categoryComp = []
-        for c in self._receipts:
-            if c._category == category:
-                categoryComp.append(c)
+        if category == "all":
+            for a in self._receipts:
+                categoryComp.append(a)
+        else :
+            for c in self._receipts:
+                if c._category == category:
+                    categoryComp.append(c)
 
         return categoryComp
 
-    def authenticate(id, password):
-        if self._id == id and self._password == password:
-            return True
-        else:
-            return False
+    def receiptStore(self, store):
+        store_receipts = []
+        for r in self._receipts:
+            if r._store == store:
+                store_receipts.append(r)
+        return store_receipts
+
 
     def __str__(self):
         return "id: {}, Receipts: {}".format(self._id, self._receipts)
