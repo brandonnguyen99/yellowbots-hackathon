@@ -20,8 +20,8 @@ def register_extensions(app):
     """Register Flask extensions."""
     db.init_app(app)
 
-    with app.app_context():
-        db.create_all()
+   # with app.app_context():
+   #     db.create_all()
     return None
 
 def register_blueprints(app):
