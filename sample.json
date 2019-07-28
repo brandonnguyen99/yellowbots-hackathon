@@ -1,17 +1,19 @@
 {
-    "store": "Woolworths",
+    "store": "woolworths",
     "date": "Jul 13 2019",
     "category": "Grocery",
+    "img": "receipt1",
+    "id":1,
     "items": [
         {
             "name": "omg i accidentally sent u",
             "quantity": 2,
-            "price": 10 
+            "price": 10
         },
         {
             "name": "a pic of my jsonfile",
             "quantity": 6,
-            "price": 9 
+            "price": 9
         },
         {
             "name": "please delete it",
@@ -21,12 +23,12 @@
         {
             "name": "just kidding hahhaha",
             "quantity": 5,
-            "price": 1 
+            "price": 1
         },
         {
             "name": "...unless?",
             "quantity": 2,
-            "price": 10 
+            "price": 10
         }
     ]
 }

@@ -7,16 +7,20 @@ class Receipt():
         self._items = []
         self._date = datetime
         self._category = ""
-        self._id = "" # receipt id ?? do we want this to correspond to user id?
+        self._id = 0 # receipt id ?? do we want this to correspond to user id?
         self._store = ""
+        self._img=""
+        self._fromjson=""
 
     def createReceipt(self, file):
+        self._fromjson = file
         with open(file, 'r') as f:
             data = json.load(f)
             self._store = data.get("store")
-            self._date = datetime.strptime(data.get("date"), '%b %d %Y')
-
+            self._date = datetime.strptime(data.get("date"), '%b %d %Y').date()
+            self._img = data.get("img")
             self._category = data.get("category")
+            self._id = data.get("id")
             tempItems = data.get("items")
             for it in tempItems:
                 new = Item(it.get("name"), it.get("quantity"), it.get("price"), self._store)
@@ -42,9 +46,35 @@ class Receipt():
             string += ("Name: " + str(i._name) + "," + " Quantity: " + str(i._quantity) + "," + " Price: " + str(i._price))
         return string
 
+    def calculateTotal(self):
+        cost = 0
+        for item in self._items:
+            cost = cost + item.price
+        return cost
+
     @property
     def category(self):
         return self._category
+
+    @property
+    def store(self):
+        return self._store
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def date(self):
+        return self._date
+
+    @property
+    def img(self):
+        return self._img
+
+    @property
+    def fromjson(self):
+        return self._fromjson
 
 # r = Receipt()
 # r.createReceipt('sample2.json')

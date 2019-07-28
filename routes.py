@@ -18,6 +18,12 @@ def home():
             categories = system.getCategories()
             # request.args['categories'] = categories
             return redirect(url_for('view'))
+
+    # new_receipt = Receipt()
+    # new_receipt.createReceipt("sample.json")
+    saved = system.user_receipt('sample.json', 1)
+    saved = system.user_receipt('sample2.json', 1)
+
     return render_template('home/index.html')
 
 @app.route('/<company>/<id>/receipt', methods=["GET", "POST"]) # accessed here through QR code
@@ -66,7 +72,16 @@ def view():
                 return redirect(url_for('receipt', receipt = "receipt1"))
         elif "b" in request.form:
             return redirect(url_for('store',name=request.form["b"]));
+        elif "choice" in request.form and (request.form["c"] != "all") :
+            # print(request.form["c"])
+            cat = request.form["c"]
+            u = system.user[0]
+            company = u.retrieveCompany(cat);
+            print(company)
+            return render_template("home/main.html", categories=categories, company=company)
+
         else:
+            print("hello----")
             for c in system.getCategories():
                 if c in request.form:
                     for u in system.user:
@@ -81,11 +96,11 @@ def view():
                                 if name in request.form:
                                     return redirect(url_for('store', name=name))
     company = []
-    print(system.user)
+    # print(system.user)
     # for u in system.user:
     #     if u.id == 1:
     u = system.user[0]
-    # company = u.retrieveCompany("all")
+    company = u.retrieveCompany("all")
     return render_template("home/main.html", categories=categories, company=company)
 
 
@@ -107,7 +122,13 @@ def store(name):
         else:
             # find the receipt
             # store the found receipt in variable found
+            id = request.form["b"];
+            for r in system.receipts:
+                if (int(id) == int(r.id)):
+                    found = r.img
+
             return redirect(url_for('receipt', receipt=found))
+
     receiptList =[]
     for u in system._user:
         if u._id == 1:
@@ -117,9 +138,9 @@ def store(name):
     cost = []
 
     for r in receiptList:
-        id.append(r._id)
-        date.append(r._date)
-        cost.append(r._calculateTotal)
+        id.append(r.id)
+        date.append(r.date)
+        cost.append(r.calculateTotal())
     length = len(id)
     return render_template("home/company_receipt.html", company=name, id=id, date=date, cost=cost, length=length)
 

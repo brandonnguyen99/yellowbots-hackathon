@@ -11,6 +11,9 @@ class System():
         d = Data()
         self._user = d.makeUsers()
     def user_receipt(self, filename, id):
+        for receipt in self._receipts:
+            if receipt.fromjson == filename:
+                return False
         new = Receipt()
         new.createReceipt(filename)
         found = False
@@ -18,7 +21,7 @@ class System():
             if id == u.id:
                 u.addReceipt(new)
                 self._receipts.append(new)
-                print("test")
+                #print("test")
                 found = True
         return found
     def generateID(self):
@@ -38,6 +41,9 @@ class System():
     @property
     def user(self):
         return self._user
+    @property
+    def receipts(self):
+        return self._receipts
 
             # print error- output to front end
 # s = System()

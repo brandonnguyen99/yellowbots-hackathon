@@ -58,19 +58,22 @@
 <div style = "position: relative;">
 <table align = "center">
     <tr>
+        <form method="POST">
         <div class="select_container">
             <div class="select">
-            <select>
+            <select name="c" value={{category}}>
             <div class = "dropdownmenu">
             {% for i in categories%}
-            <form method="POST">
-                <option value={{ i }} type="submit" name="c" value={{i}}>{{ i }}</option>
-            </form>
+                <option type="text" name="c" value={{i}}>{{ i }}</option>
             {% endfor %}
             </div>
             </select>
             </div>
+            <div>
+                <button name="choice" type="submit">Submit</button>
+            </div>
         </div>
+        </form>
     </tr>
 </table>
 </div>
@@ -97,13 +100,13 @@
                 <tr>
                     {% if i*3 < company|length %}
                     <form method="POST">
-                         <td> <input type="image" src="{{company[i*3]}}.png" width = 98px, height = 126px name="b" value={{company[i*3]}}> </td>
+                         <td> <input type="image" src="../../../static/img/{{company[i*3]}}.png" width = 98px, height = 126px name="b" value={{company[i*3]}}> </td>
                     {% endif %}
                     {% if i*3+1 < company|length %}
-                         <td> <input type="image" src="{{company[i*3+1]}}.png" width = 98px, height = 126px name="b" value={{company[i*3+1]}}> </td>
+                         <td> <input type="image" src="../../../static/img/{{company[i*3+1]}}.png" width = 98px, height = 126px name="b" value={{company[i*3+1]}}> </td>
                     {% endif %}
                     {% if i*3+2 < company|length %}
-                         <td> <input type="image" src="{{company[i*3+2]}}.png" width = 98px, height = 126px name="b" value={{company[i*3+2]}}> </td>
+                         <td> <input type="image" src="../../../static/img/{{company[i*3+2]}}.png" width = 98px, height = 126px name="b" value={{company[i*3+2]}}> </td>
                     </form>
                     {% endif %}
                 </tr>

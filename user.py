@@ -25,7 +25,7 @@ class User():
     def retrieveCategory(self, category):
         category_receipts = []
         for receipt in self._receipts:
-            if (receipt.category == category):
+            if (receipt.category == "category"):
                 category_receipts.append(receipt)
 
         return category_receipts
@@ -33,11 +33,12 @@ class User():
         categoryComp = []
         if category == "all":
             for a in self._receipts:
-                categoryComp.append(a)
+                if a.store not in categoryComp:
+                    categoryComp.append(a.store)
         else :
             for c in self._receipts:
                 if c._category == category:
-                    categoryComp.append(c)
+                    categoryComp.append(c.store)
 
         return categoryComp
 
