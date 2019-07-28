@@ -6,29 +6,9 @@
     "id":1,
     "items": [
         {
-            "name": "omg i accidentally sent u",
-            "quantity": 2,
-            "price": 10
-        },
-        {
-            "name": "a pic of my jsonfile",
-            "quantity": 6,
-            "price": 9
-        },
-        {
-            "name": "please delete it",
-            "quantity": 3,
-            "price": 5.50
-        },
-        {
-            "name": "just kidding hahhaha",
-            "quantity": 5,
-            "price": 1
-        },
-        {
-            "name": "...unless?",
-            "quantity": 2,
-            "price": 10
+            "name": "Lipton Ice Tea",
+            "quantity": 1,
+            "price": 5
         }
     ]
 }
